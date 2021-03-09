@@ -1,0 +1,51 @@
+.counterWrapper {
+    border: 3px solid blueviolet;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.windowWithSettings {
+    display: flex;
+    background-color: blueviolet;
+    width: 400px;
+    height: 150px;
+    border-radius: 20px;
+    margin: 15px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    margin: 0 15px 15px;
+    font-family: Montserrat, serif;
+    background-color: blueviolet;
+    font-size: 30px;
+    color: #282c34;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    width: 140px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.3;
+}
+
+.btn:active {
+    opacity: 0.2;
+}
+
+.setValue {
+    display: flex;
+    margin: 15px;
+    /*background-color: #efcbcb;*/
+}
+
+.inputClass {
+    margin-left: 10px;
+}

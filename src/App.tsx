@@ -1,22 +1,42 @@
-import React, {useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import './App.css';
-import {Counter} from "./Components/Counter";
+import {Counter} from "./Components/Counter/Counter";
+import {CounterSettingsWindow} from "./Components/CounterSettingsWindow/CounterSettingsWindow";
 
 
 function App() {
 
-    let [counterValue, setCounterValue] = useState(0);
 
+
+    let [counterValue, setCounterValue] = useState(0);
+    const [startValue, setStartValue] = useState<number> (0)
+    const [maxValue, setMaxValue] = useState<number> (5)
+    const changeStartValueInInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setStartValue(parseInt(e.currentTarget.value))
+    }
+    const changeMaxValueInInput = (e: ChangeEvent<HTMLInputElement>) => {
+        setMaxValue(parseInt(e.currentTarget.value))
+    }
+
+    const setSettingsCallback = () => {
+        setCounterValue(startValue)
+
+    }
     const incOnClick = () => {setCounterValue(counterValue += 1)};
-    const resetOnClick = () => {setCounterValue(0)};
-    const maxCount = 5;
-    const minCount = 0;
+    const resetOnClick = () => {setCounterValue(startValue)};
+
 
   return (
     <div className="App">
+        <CounterSettingsWindow maxValue={maxValue}
+                               startValue={startValue}
+                               changeStartValueInInput={changeStartValueInInput}
+                               changeMaxValueInInput={changeMaxValueInInput}
+                               setSettingsCallback={setSettingsCallback}
+        />
         <Counter counterValue={counterValue}
-                 maxCount={maxCount}
-                 minCount={minCount}
+                 maxValue={maxValue}
+                 startValue={startValue}
                  incOnClick={incOnClick}
                  resetOnClick={resetOnClick}
         />
@@ -25,3 +45,4 @@ function App() {
 }
 
 export default App;
+

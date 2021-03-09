@@ -4,11 +4,13 @@ import s from "./ScoreBoard.module.css"
 
 export type ScoreboardPropsType = {
     counterValue: number
+    maxValue: number
+    startValue: number
 }
 
 export const ScoreBoard = (props:ScoreboardPropsType) => {
 
-    let classForNumber = props.counterValue === 5 ? s.endNumber : ""
+    let classForNumber = props.counterValue === props.maxValue ? s.endNumber : ""
 
     return (
         <div className={s.windowWithNumber}>

@@ -6,8 +6,8 @@ export type ButtonsPropsType = {
     counterValue: number
     incOnClick: () => void
     resetOnClick: () => void
-    maxCount: 5
-    minCount: 0
+    maxValue: number
+    startValue: number
 
 }
 
@@ -17,8 +17,8 @@ export const Buttons = (props: ButtonsPropsType) => {
         <div className={s.btnWrapper}>
             <OneButton buttonTitle={"inc"}
                        buttonClick={props.incOnClick}
-                       disabled={props.maxCount === props.counterValue}/>
-            <OneButton disabled={props.minCount === props.counterValue}
+                       disabled={props.maxValue === props.counterValue}/>
+            <OneButton disabled={props.startValue === props.counterValue}
                        buttonTitle={"reset"}
                        buttonClick={props.resetOnClick}/>
         </div>
