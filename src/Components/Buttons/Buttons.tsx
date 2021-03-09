@@ -9,6 +9,7 @@ export type ButtonsPropsType = {
     maxValue: number
     startValue: number
 
+
 }
 
 export const Buttons = (props: ButtonsPropsType) => {

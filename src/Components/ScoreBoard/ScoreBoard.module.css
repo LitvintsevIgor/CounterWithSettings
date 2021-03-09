@@ -1,15 +1,26 @@
 .windowWithNumber {
     background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 400px;
     height: 150px;
-    line-height: 150px;
+    /*line-height: 150px;*/
     border-radius: 20px;
-    text-align: center;
-    align-self: stretch;
+    /*text-align: center;*/
+    /*align-self: stretch;*/
     margin: 15px;
     font-size: 80px;
 }
 
+.forNumber {
+    display: inline-block;
+}
+
 .endNumber {
     color: red;
+}
+
+.messageStyle {
+    font-size: 25px;
 }
