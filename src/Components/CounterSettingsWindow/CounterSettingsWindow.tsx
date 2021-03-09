@@ -13,6 +13,12 @@ export type CounterSettingsWindowPropsType = {
 
 export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => {
 
+    let disabledValue = props.startValue === props.startValueSetting
+        && props.maxValue === props.maxValueSetting;
+    if (props.startValue < 0) {
+        disabledValue = true;
+    }
+
     return (
         <div className={s.counterWrapper}>
             <div className={s.windowWithSettings}>
@@ -39,7 +45,7 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
             <div className={s.btnWrapper}>
                 <button className={s.btn}
                         onClick={props.setSettingsCallback}
-                        disabled={props.startValue === props.startValueSetting && props.maxValue === props.maxValueSetting}
+                        disabled={disabledValue}
                 >set</button>
             </div>
         </div>
@@ -51,7 +57,7 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
 // 2. От такого же условия должно зависеть и то, что выводится на экране, то есть если
 // startValue и maxValue не равны startValueSetting и maxValueSetting то нужно показать
 // текст enter values and press "set"
-//
-//
+// Сделали
+// 3. Кнопка set еще должна дизэйблится когда у нас startValue меньше 0
 //
 //
