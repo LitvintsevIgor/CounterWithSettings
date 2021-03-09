@@ -1,0 +1,20 @@
+.btn {
+    margin: 0 15px 15px;
+    font-family: Montserrat, serif;
+    background-color: blueviolet;
+    font-size: 30px;
+    color: #282c34;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    width: 140px;
+    cursor: pointer;
+}
+
+.btn:disabled {
+    opacity: 0.3;
+}
+
+.btn:active {
+    opacity: 0.2;
+}
