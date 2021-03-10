@@ -56,6 +56,25 @@ function App() {
         }
     }, [] )
 
+
+    useEffect( () => {
+        let startValueSettingAsString = localStorage.getItem("startValueSetting");
+        if (startValueSettingAsString) {
+            let newStartValueSettingAsString = JSON.parse(startValueSettingAsString);
+            setStartValueSetting(newStartValueSettingAsString)
+            setCounterValue(counterValue)
+        }
+    }, [] )
+
+    useEffect( () => {
+        let maxValueSettingAsString = localStorage.getItem("maxValueSetting");
+        if (maxValueSettingAsString) {
+            let newMaxValueSettingAsString = JSON.parse(maxValueSettingAsString);
+            setMaxValueSetting(newMaxValueSettingAsString)
+
+        }
+    }, [] )
+
     useEffect( () => {
         let counterValueAsString = localStorage.getItem("counterValue");
         if (counterValueAsString) {
@@ -75,11 +94,18 @@ function App() {
         localStorage.setItem("maxValue", JSON.stringify(maxValue))
     }, [maxValue] )
 
+
+    useEffect( () => {
+        localStorage.setItem("startValueSetting", JSON.stringify(startValueSetting))
+    }, [startValueSetting] )
+
+    useEffect( () => {
+        localStorage.setItem("maxValueSetting", JSON.stringify(maxValueSetting))
+    }, [maxValueSetting] )
+
     useEffect( () => {
         localStorage.setItem("counterValue", JSON.stringify(counterValue))
     }, [counterValue] )
-
-
 
 
   return (

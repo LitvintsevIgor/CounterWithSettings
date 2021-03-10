@@ -26,8 +26,10 @@ export const Counter = (props: CounterPropsType) => {
             <Buttons counterValue={props.counterValue}
                      incOnClick={props.incOnClick}
                      resetOnClick={props.resetOnClick}
-                     maxValue={props.maxValueSetting}
-                     startValue={props.startValueSetting}
+                     maxValueSetting={props.maxValueSetting}
+                     startValueSetting={props.startValueSetting}
+                     maxValue={props.maxValue}
+                     startValue={props.startValue}
             />
         </div>
     )
