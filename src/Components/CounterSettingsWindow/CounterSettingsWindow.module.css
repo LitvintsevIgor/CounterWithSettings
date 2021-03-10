@@ -15,7 +15,7 @@
     border-radius: 20px;
     margin: 15px;
     justify-content: center;
-    align-items: center;
+    /*align-items: center;*/
     flex-direction: column;
 }
 
@@ -42,7 +42,8 @@
 
 .setValue {
     display: flex;
-    margin: 15px;
+    margin: 15px 65px;
+    justify-content: space-between;
     /*background-color: #efcbcb;*/
 }
 
