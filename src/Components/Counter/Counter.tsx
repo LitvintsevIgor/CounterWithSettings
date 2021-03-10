@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Dispatch, SetStateAction} from 'react';
 import { Buttons } from '../Buttons/Buttons';
 import s from "./Counter.module.css"
 import { ScoreBoard } from '../ScoreBoard/ScoreBoard';

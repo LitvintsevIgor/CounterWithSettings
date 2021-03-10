@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useState} from 'react';
+import React, {ChangeEvent, useEffect, useState} from 'react';
 import './App.css';
 import {Counter} from "./Components/Counter/Counter";
 import {CounterSettingsWindow} from "./Components/CounterSettingsWindow/CounterSettingsWindow";
@@ -37,6 +37,48 @@ function App() {
     const incOnClick = () => {setCounterValue(counterValue += 1)};
     // Эта функция срабатывает при нажатии на reset и по идее должна сбрасывать число на экране до того,
     const resetOnClick = () => {setCounterValue(startValueSetting)};
+
+
+
+    useEffect( () => {
+        let startValueAsString = localStorage.getItem("startValue");
+        if (startValueAsString) {
+            let newStartValueAsString = JSON.parse(startValueAsString);
+            setStartValue(newStartValueAsString)
+        }
+    }, [] )
+
+    useEffect( () => {
+        let maxValueAsString = localStorage.getItem("maxValue");
+        if (maxValueAsString) {
+            let newMaxValueAsString = JSON.parse(maxValueAsString);
+            setMaxValue(newMaxValueAsString)
+        }
+    }, [] )
+
+    useEffect( () => {
+        let counterValueAsString = localStorage.getItem("counterValue");
+        if (counterValueAsString) {
+            let newСounterValueAsString = JSON.parse(counterValueAsString);
+            setCounterValue(newСounterValueAsString)
+        }
+    }, [] )
+
+
+
+
+    useEffect( () => {
+        localStorage.setItem("startValue", JSON.stringify(startValue))
+    }, [startValue] )
+
+    useEffect( () => {
+        localStorage.setItem("maxValue", JSON.stringify(maxValue))
+    }, [maxValue] )
+
+    useEffect( () => {
+        localStorage.setItem("counterValue", JSON.stringify(counterValue))
+    }, [counterValue] )
+
 
 
 

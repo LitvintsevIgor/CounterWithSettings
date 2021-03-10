@@ -15,9 +15,17 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
 
     let disabledValue = props.startValue === props.startValueSetting
         && props.maxValue === props.maxValueSetting;
-    if (props.startValue < 0) {
+    if (props.startValue < 0 || props.maxValue <= props.startValue) {
         disabledValue = true;
     }
+
+    let inputMaxStyle = props.maxValue <= props.startValue
+        ?  s.inputClassError : s.inputClass
+
+    let inputStartStyle = props.maxValue <= props.startValue || props.startValue < 0
+        ?  s.inputClassError : s.inputClass
+
+
 
     return (
         <div className={s.counterWrapper}>
@@ -26,7 +34,7 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
                     <div>
                         max value:
                     </div>
-                    <input className={s.inputClass}
+                    <input className={inputMaxStyle}
                            type={"number"}
                            value={props.maxValue}
                            onChange={props.changeMaxValueInInput}/>
@@ -35,7 +43,7 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
                     <div>
                         start value:
                     </div>
-                    <input className={s.inputClass}
+                    <input className={inputStartStyle}
                            type="number"
                            value={props.startValue}
                            onChange={props.changeStartValueInInput}
@@ -59,5 +67,5 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
 // текст enter values and press "set"
 // Сделали
 // 3. Кнопка set еще должна дизэйблится когда у нас startValue меньше 0
-//
-//
+// 4. Нам нужно сделать так, что бы нижний инпут с startValue становился
+// красным, когда в нем значение, то есть startValue < 0 или когда startValue === maxValue

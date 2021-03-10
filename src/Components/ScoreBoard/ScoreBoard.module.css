@@ -24,3 +24,8 @@
 .messageStyle {
     font-size: 25px;
 }
+
+.messageStyleError {
+    font-size: 25px;
+    color: red;
+}
