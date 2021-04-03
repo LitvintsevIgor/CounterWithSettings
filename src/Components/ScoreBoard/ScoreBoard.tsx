@@ -12,14 +12,6 @@ export type ScoreboardPropsType = {
 
 export const ScoreBoard = (props:ScoreboardPropsType) => {
 
-    // let classForNumber = props.counterValue === props.maxValueSetting ? s.endNumber : ""
-    //
-    // if (props.startValue === props.startValueSetting && props.maxValue === props.maxValueSetting) {
-    //     classForNumber = s.messageStyle
-    // }
-
-
-
     let classForNumber;
 
     if (props.startValue === props.startValueSetting && props.maxValue === props.maxValueSetting) {

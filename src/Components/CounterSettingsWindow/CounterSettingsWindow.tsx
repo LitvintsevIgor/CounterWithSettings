@@ -1,5 +1,7 @@
 import s from "../CounterSettingsWindow/CounterSettingsWindow.module.css";
 import React, {ChangeEvent} from "react";
+import {SettingsValue} from "./SettingsValue/SettingsValue";
+import {OneButton} from "../Buttons/OneButton/OneButton";
 
 export type CounterSettingsWindowPropsType = {
     startValue: number
@@ -25,40 +27,35 @@ export const CounterSettingsWindow = (props: CounterSettingsWindowPropsType) => 
     let inputStartStyle = props.maxValue <= props.startValue || props.startValue < 0
         ?  s.inputClassError : s.inputClass
 
-
-
     return (
         <div className={s.counterWrapper}>
             <div className={s.windowWithSettings}>
-                <div className={s.setValue}>
-                    <div>
-                        max value:
-                    </div>
-                    <input className={inputMaxStyle}
-                           type={"number"}
-                           value={props.maxValue}
-                           onChange={props.changeMaxValueInInput}/>
-                </div>
-                <div className={s.setValue}>
-                    <div>
-                        start value:
-                    </div>
-                    <input className={inputStartStyle}
-                           type="number"
-                           value={props.startValue}
-                           onChange={props.changeStartValueInInput}
-                    />
-                </div>
+                <SettingsValue changeValueInInput={props.changeMaxValueInInput}
+                               label={"max value:"}
+                               inputStyle={inputMaxStyle}
+                               value={props.maxValue}
+                />
+                <SettingsValue changeValueInInput={props.changeStartValueInInput}
+                               label={"start value:"}
+                               inputStyle={inputStartStyle}
+                               value={props.startValue}
+                />
             </div>
+
             <div className={s.btnWrapper}>
-                <button className={s.btn}
-                        onClick={props.setSettingsCallback}
-                        disabled={disabledValue}
-                >set</button>
+                <OneButton buttonTitle={"set"}
+                           disabled={disabledValue}
+                           buttonClick={props.setSettingsCallback}/>
             </div>
         </div>
     )
 }
+
+
+
+
+
+
 // 1. У нас есть кнопка set и она по умолчанию должна быть задизэйблина, и раздизэйбливаться она
 // должна тогда, когда startValue и maxValue не равны startValueSetting и maxValueSetting
 // Сделали
